@@ -18,6 +18,55 @@ Here are some examples of how Sawtooth can be used in blockchain applications:
     Trade finance: Sawtooth can be used to facilitate trade finance transactions, such as letters of credit and invoices. This can help to reduce risk and improve efficiency in the trade finance process.
     Healthcare: Sawtooth can be used to store and manage patient medical records. This can help to improve the quality and efficiency of healthcare services.
 
+## Flow of sawtooth block chain
+The flow of transactions and blocks in a Hyperledger Sawtooth blockchain follows a specific sequence of steps to achieve consensus, validate transactions, and maintain a secure ledger. Here's a high-level overview of the flow in a Sawtooth blockchain:
+
+1. **Transaction Submission**:
+   - The process begins when participants submit transactions to the Sawtooth network. Transactions represent actions, such as transferring assets or updating data.
+
+2. **Transaction Validation**:
+   - Validators in the network receive the incoming transactions. Validators are nodes responsible for processing and validating transactions.
+   - Transactions are checked for their correctness, signatures, and adherence to the transaction family rules. Transaction families define how specific types of transactions should be processed.
+   - Valid transactions are grouped together into a "transaction batch."
+
+3. **Batch Creation and Signing**:
+   - Once a batch is formed, it is signed by the validator that created it. The signature ensures the authenticity of the batch.
+
+4. **Consensus Mechanism (e.g., PoET)**:
+   - In Hyperledger Sawtooth, the consensus mechanism, such as "Proof of Elapsed Time" (PoET), determines which validator gets to propose the next block.
+   - Validators compete to create a new block by generating a random wait time (in the case of PoET) or using the chosen consensus algorithm's method.
+   - The validator with the shortest wait time or winning condition is granted the right to create the next block.
+
+5. **Block Proposal**:
+   - The winning validator creates a new block by including one or more transaction batches in the block.
+   - The proposed block contains a reference to the previous block in the blockchain, effectively forming a chain of blocks.
+
+6. **Broadcasting the Block**:
+   - The validator broadcasts the newly created block to other nodes in the network.
+
+7. **Block Verification**:
+   - Other validators receive the proposed block and verify its authenticity and correctness.
+   - Verification includes checking the block's signature, ensuring that transactions are valid and adhere to the rules, and confirming that it references the previous block in the chain.
+
+8. **Consensus Agreement**:
+   - Once a majority of validators agree that the proposed block is valid, they reach consensus to add it to the blockchain.
+   - Consensus ensures that all participants in the network have a consistent view of the blockchain's state.
+
+9. **Block Addition**:
+   - The agreed-upon block is added to the blockchain by each validator.
+   - The blockchain now has a new block with the latest transactions.
+
+10. **Data Storage**:
+    - Each validator stores a copy of the blockchain, which contains the entire transaction history and the current state of the ledger.
+
+11. **Transaction Acknowledgment**:
+    - Participants who submitted transactions receive acknowledgment that their transactions have been included in a block and are part of the blockchain.
+
+12. **Repeat**:
+    - The process repeats as new transactions are submitted to the network, and validators compete to create new blocks.
+
+This flow ensures that transactions are processed, validated, and added to the blockchain in a secure and decentralized manner. Sawtooth's modular architecture and consensus mechanism provide flexibility and scalability, making it suitable for a wide range of blockchain applications, from supply chain management to digital asset tracking.
+
 Hyperledger Sawtooth supports both public and permissioned modes for blockchain networks, and the choice between them depends on the use case and the level of control and access you want over the network. Here's a comparison of the two modes:
 
 Public Mode:
