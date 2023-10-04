@@ -46,8 +46,8 @@ Permissioned Mode:
 
 In summary, the key difference between public and permissioned modes in blockchain networks, including Hyperledger Sawtooth, is the level of access control and openness. Public networks are open to anyone and are more decentralized, while permissioned networks are restricted to authorized participants and offer more control over consensus and data privacy. The choice between these modes depends on the specific requirements and goals of the blockchain application.
 
-Consensus algos:
-Devmode:
+## Consensus algos:
+### Devmode:
 
 "Devmode" is a term often used in the context of blockchain development environments. It refers to a mode in which a blockchain platform, like Hyperledger Sawtooth, can be configured for local development and testing. Devmode is typically used by blockchain developers to create and test smart contracts, experiment with transactions, and build and debug applications in a controlled and simplified environment. Here's how it works:
 
@@ -62,7 +62,7 @@ Devmode:
     Isolation: Devmode provides isolation from the real blockchain network, ensuring that any experiments or tests you perform don't affect a live network.
 
 In summary, devmode is a development environment that simplifies and accelerates blockchain development by providing a local and controlled setup. It's an essential tool for developers to build and test blockchain applications before deploying them to a production blockchain network.
-PBFT (Practical Byzantine Fault Tolerance):
+### PBFT (Practical Byzantine Fault Tolerance):
 
 PBFT stands for "Practical Byzantine Fault Tolerance," and it's a consensus algorithm used in some blockchain networks, including Hyperledger Fabric. PBFT is designed to address the Byzantine Generals Problem, which is a classic problem in distributed computing and consensus.
 
@@ -95,7 +95,7 @@ In summary, PBFT is a consensus algorithm used in some permissioned blockchain n
 
 "PoET" stands for "Proof of Elapsed Time," and it's a consensus algorithm used in some blockchain platforms, including Hyperledger Sawtooth. PoET is designed to achieve consensus in a more energy-efficient and fair manner compared to traditional Proof of Work (PoW) or Proof of Stake (PoS) algorithms.
 
-Here's an explanation of how PoET works:
+### Here's an explanation of how PoET works:
 
     Random Wait Times:
         In PoET, the process of selecting the next validator to create a new block is based on a random wait time.
