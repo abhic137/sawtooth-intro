@@ -46,6 +46,88 @@ Permissioned Mode:
 
 In summary, the key difference between public and permissioned modes in blockchain networks, including Hyperledger Sawtooth, is the level of access control and openness. Public networks are open to anyone and are more decentralized, while permissioned networks are restricted to authorized participants and offer more control over consensus and data privacy. The choice between these modes depends on the specific requirements and goals of the blockchain application.
 
+Consensus algos:
+Devmode:
+
+"Devmode" is a term often used in the context of blockchain development environments. It refers to a mode in which a blockchain platform, like Hyperledger Sawtooth, can be configured for local development and testing. Devmode is typically used by blockchain developers to create and test smart contracts, experiment with transactions, and build and debug applications in a controlled and simplified environment. Here's how it works:
+
+    Local Environment: Devmode allows you to run a blockchain network locally on your development machine. It's not intended for production use but is ideal for rapid development and testing.
+
+    Simplified Consensus: In a devmode setup, consensus mechanisms are usually simplified to make it easy for developers to quickly validate and add transactions to the blockchain. It may use a basic consensus algorithm or no consensus at all, depending on the specific blockchain platform.
+
+    Faster Transactions: Transactions are processed quickly, and new blocks are added rapidly, which is useful for testing and debugging purposes. In a production blockchain, consensus and block creation may take more time and involve multiple validators.
+
+    No Decentralization: Devmode often involves a single-node or limited-node configuration, which doesn't reflect the decentralized nature of a production blockchain network. In a real-world scenario, multiple nodes participate in consensus, whereas in devmode, you might have only one node.
+
+    Isolation: Devmode provides isolation from the real blockchain network, ensuring that any experiments or tests you perform don't affect a live network.
+
+In summary, devmode is a development environment that simplifies and accelerates blockchain development by providing a local and controlled setup. It's an essential tool for developers to build and test blockchain applications before deploying them to a production blockchain network.
+PBFT (Practical Byzantine Fault Tolerance):
+
+PBFT stands for "Practical Byzantine Fault Tolerance," and it's a consensus algorithm used in some blockchain networks, including Hyperledger Fabric. PBFT is designed to address the Byzantine Generals Problem, which is a classic problem in distributed computing and consensus.
+
+Here's how PBFT works:
+
+    Node Roles: In a PBFT-based network, there are two types of nodes: clients and validators.
+
+    Client Transactions: Clients initiate transactions by sending them to the network.
+
+    Preparation Phase:
+        Validators receive and validate incoming transactions.
+        They propose a specific order for the transactions and send their proposals to other validators.
+        Validators gather proposals from their peers and select a specific order based on a two-thirds majority vote.
+
+    Commitment Phase:
+        Validators send a "commit" message once they've received enough matching proposals from other validators.
+        Once a validator collects enough commit messages from others, it enters the committed state for that block.
+
+    Finalization and Consensus:
+        When a validator has entered the committed state for a block, it considers that block as "finalized."
+        Blocks that are finalized by a sufficient number of validators become part of the blockchain.
+
+Key features of PBFT:
+
+    Safety: PBFT ensures that once a block is committed, it's never reverted. This provides strong consistency and finality.
+    Performance: PBFT is efficient and can achieve consensus quickly, making it suitable for permissioned blockchains.
+    Tolerant to Byzantine Faults: PBFT can tolerate up to one-third of the nodes behaving maliciously or failing, making it a robust consensus algorithm.
+
+In summary, PBFT is a consensus algorithm used in some permissioned blockchain networks to achieve consensus among validators while tolerating a certain number of malicious or faulty nodes. It provides strong consistency and high performance, making it suitable for enterprise and consortium blockchain applications.
+
+"PoET" stands for "Proof of Elapsed Time," and it's a consensus algorithm used in some blockchain platforms, including Hyperledger Sawtooth. PoET is designed to achieve consensus in a more energy-efficient and fair manner compared to traditional Proof of Work (PoW) or Proof of Stake (PoS) algorithms.
+
+Here's an explanation of how PoET works:
+
+    Random Wait Times:
+        In PoET, the process of selecting the next validator to create a new block is based on a random wait time.
+        Each validator participating in the consensus process generates a random wait time and waits for the specified duration before proposing a new block.
+
+    Trusted Execution Environment (TEE):
+        To ensure that validators cannot manipulate their wait times and cheat the system, PoET relies on a Trusted Execution Environment (TEE).
+        A TEE is a secure hardware component that provides a trusted and isolated environment for running code.
+
+    Wait Certificate:
+        Validators request a wait time from the TEE and receive a "wait certificate" that contains the actual wait time.
+        Validators must include this wait certificate in their block proposal.
+
+    Shortest Wait Time Wins:
+        Validators broadcast their block proposals along with their wait certificates to the network.
+        The validator with the shortest wait time is given the privilege to add the new block to the blockchain.
+
+Key characteristics of PoET:
+
+    Fairness: PoET aims to achieve fairness by ensuring that no single validator has a significant advantage in proposing new blocks. Validators are selected based on random wait times.
+
+    Energy Efficiency: PoET does not require the energy-intensive computational work that PoW does. Validators only need to wait for a specified time, which is energy-efficient.
+
+    Decentralization: PoET allows for a decentralized network of validators, similar to PoW, while avoiding the high energy consumption associated with PoW.
+
+    Security: The use of TEEs helps prevent validators from manipulating wait times or cheating the system, enhancing the security of the consensus process.
+
+    Low Latency: PoET can achieve low-latency block creation since validators don't need to solve complex cryptographic puzzles like in PoW.
+
+It's important to note that PoET is typically used in permissioned or consortium blockchain networks where there is a level of trust among participants. In these networks, validators are known entities, and the focus is on achieving efficiency, fairness, and security in consensus while avoiding the resource-intensive nature of PoW.
+
+Overall, PoET is an innovative consensus algorithm that addresses some of the limitations of traditional consensus mechanisms and is designed for specific use cases where energy efficiency and fairness are important considerations.
 
 
 ## Installing on docker 
