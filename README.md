@@ -67,6 +67,7 @@ The flow of transactions and blocks in a Hyperledger Sawtooth blockchain follows
 
 This flow ensures that transactions are processed, validated, and added to the blockchain in a secure and decentralized manner. Sawtooth's modular architecture and consensus mechanism provide flexibility and scalability, making it suitable for a wide range of blockchain applications, from supply chain management to digital asset tracking.
 
+## Modes
 Hyperledger Sawtooth supports both public and permissioned modes for blockchain networks, and the choice between them depends on the use case and the level of control and access you want over the network. Here's a comparison of the two modes:
 
 Public Mode:
