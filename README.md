@@ -18,7 +18,33 @@ Here are some examples of how Sawtooth can be used in blockchain applications:
     Trade finance: Sawtooth can be used to facilitate trade finance transactions, such as letters of credit and invoices. This can help to reduce risk and improve efficiency in the trade finance process.
     Healthcare: Sawtooth can be used to store and manage patient medical records. This can help to improve the quality and efficiency of healthcare services.
 
+Hyperledger Sawtooth supports both public and permissioned modes for blockchain networks, and the choice between them depends on the use case and the level of control and access you want over the network. Here's a comparison of the two modes:
 
+Public Mode:
+
+    Open Access: In public mode, the network is open to anyone who wants to participate. There are no restrictions on who can join as a validator node or transact on the blockchain.
+
+    Decentralization: Public networks are typically more decentralized because anyone can participate as a validator. This decentralization can enhance security and censorship resistance.
+
+    Lack of Control: The downside of open access is that you have less control over who participates. This may lead to security challenges and scalability concerns.
+
+    Anonymity: Participants in a public network can often maintain a level of anonymity, which can be important for privacy-focused applications.
+
+    Examples: Bitcoin and Ethereum are examples of public blockchains.
+
+Permissioned Mode:
+
+    Access Control: Permissioned networks require participants to be authorized before they can join. This means that you have control over who can run validator nodes and transact on the network.
+
+    Consensus Flexibility: Permissioned networks often offer more flexibility in choosing and configuring consensus mechanisms. This allows you to tailor the network to your specific requirements.
+
+    Privacy and Confidentiality: Permissioned blockchains are often used for business and enterprise applications where data privacy and confidentiality are crucial. Participants can be identified and may have varying levels of access to data.
+
+    Compliance: Permissioned networks are often designed to meet regulatory and compliance requirements, making them suitable for industries like finance and healthcare.
+
+    Examples: Hyperledger Sawtooth itself is often used in permissioned deployments, and other examples include Hyperledger Fabric and R3 Corda.
+
+In summary, the key difference between public and permissioned modes in blockchain networks, including Hyperledger Sawtooth, is the level of access control and openness. Public networks are open to anyone and are more decentralized, while permissioned networks are restricted to authorized participants and offer more control over consensus and data privacy. The choice between these modes depends on the specific requirements and goals of the blockchain application.
 
 
 
