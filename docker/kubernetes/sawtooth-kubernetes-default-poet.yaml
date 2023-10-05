@@ -4,12 +4,15 @@ kind: List
 
 items:
 
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     name: sawtooth-0
   spec:
     replicas: 1
+    selector:           # Add this selector field
+      matchLabels:
+        name: sawtooth-0
     template:
       metadata:
         labels:
@@ -194,12 +197,15 @@ items:
         port: 8800
         targetPort: 8800
 
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     name: sawtooth-1
   spec:
     replicas: 1
+    selector:           # Add this selector field
+      matchLabels:
+        name: sawtooth-1
     template:
       metadata:
         labels:
@@ -336,12 +342,15 @@ items:
         port: 8800
         targetPort: 8800
 
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     name: sawtooth-2
   spec:
     replicas: 1
+    selector:           # Add this selector field
+      matchLabels:
+        name: sawtooth-2
     template:
       metadata:
         labels:
@@ -478,12 +487,15 @@ items:
         port: 8800
         targetPort: 8800
 
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     name: sawtooth-3
   spec:
     replicas: 1
+    selector:           # Add this selector field
+      matchLabels:
+        name: sawtooth-3
     template:
       metadata:
         labels:
@@ -620,12 +632,15 @@ items:
         port: 8800
         targetPort: 8800
 
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     name: sawtooth-4
   spec:
     replicas: 1
+    selector:           # Add this selector field
+      matchLabels:
+        name: sawtooth-4
     template:
       metadata:
         labels:
