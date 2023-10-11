@@ -4,7 +4,7 @@ HelloWorld is a simple blockchain application written in JavaScript with Hyperle
 
 * a 6-hex character prefix (the "HelloWorld" Transaction Family namespace) and
 * the first 64 hex characters of the SHA-512 hash of a public key in hex.
-
+https://kba.ai/lets-build-a-hyperledger-sawtooth-application/
 ## Components
 
 HelloWorld application is built with two parts, both written in JavaScript
