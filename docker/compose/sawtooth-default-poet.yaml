@@ -19,6 +19,7 @@ volumes:
   poet-shared:
 
 services:
+  hostname: shell
   shell:
     image: hyperledger/sawtooth-shell:nightly
     container_name: sawtooth-shell-default
