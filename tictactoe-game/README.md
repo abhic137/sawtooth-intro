@@ -52,4 +52,23 @@ STATE     : P1-NEXT
  ---|---|---
     |   |  
 ```
+to check the setting in the 0 node
+```
+sawtooth settings list --url http://sawtooth-rest-api-default-0:8008
+
+```
+Either player can use the xo delete command to remove the game data from global state.
+```
+ xo delete my-game --url http://sawtooth-rest-api-default-0:8008
+```
+To display the list of blocks of node 0 we can change the number from 0-4
+```
+sawtooth block list  --url http://sawtooth-rest-api-default-0:8008
+
+```
+To display more information about the block
+```
+sawtooth block show <BLOCK_ID> --url http://sawtooth-rest-api-default-0:8008
+
+```
 
