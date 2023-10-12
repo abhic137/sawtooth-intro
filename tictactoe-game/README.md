@@ -71,4 +71,13 @@ To display more information about the block
 sawtooth block show <BLOCK_ID> --url http://sawtooth-rest-api-default-0:8008
 
 ```
+The sawtooth state command lets you display state data. Sawtooth stores state data in a Merkle-Radix tree (for more information, see Global State.
 
+  Use sawtooth state list to display addresses in state with their size and associated data. The default output format truncates each line; use --format with csv, json, or yaml to display the entire line.
+```
+sawtooth state list --format csv --url http://sawtooth-rest-api-default-0:8008
+```
+Use sawtooth state show to view state data at a specific address (a node in the Merkle-Radix database). Copy the address from the output of sawtooth state list, then paste it in place of {STATE_ADDRESS} in the following command:
+```
+sawtooth state show {STATE_ADDRESS} --url http://sawtooth-rest-api-default-0:8008
+```
