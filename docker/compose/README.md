@@ -27,6 +27,11 @@ Here are a couple of useful Docker commands:
     docker service ps <service-name>: Check the status of a specific service.
     docker stack rm <stack-name>: Remove a stack and its services.
 
+To check if the containers are running:
+```
+sudo docker stack ps my-sawtooth-stack
+
+```
 to down the setup:
 ```
 sudo docker stack rm my-sawtooth-stack
