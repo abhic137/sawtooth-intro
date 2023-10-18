@@ -9,6 +9,13 @@ use this command to see the connected nodes:
 docker node ls
 
 ```
+Create an Overlay Network (if not created already):
+
+If you don't already have a custom overlay network for Sawtooth, you can create one. This isolates the Sawtooth containers from other networks:
+```
+
+sudo docker network create --driver overlay sawtooth-net
+```
 inorder to deploy the services use this command, you can use your own name insted of my-sawtooth-stack
 ```
 docker stack deploy -c sawtooth-swarm-pbft.yaml my-sawtooth-stack
