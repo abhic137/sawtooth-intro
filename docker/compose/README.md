@@ -32,6 +32,10 @@ To check if the containers are running:
 sudo docker stack ps my-sawtooth-stack
 
 ```
+```
+ docker service ls
+
+```
 to down the setup:
 ```
 sudo docker stack rm my-sawtooth-stack
