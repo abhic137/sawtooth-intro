@@ -14,8 +14,8 @@
 
 version: '3.6'
 
-volumes:
-  pbft-shared:
+#volumes:
+ # pbft-shared:
 
 services:
 
@@ -23,6 +23,8 @@ services:
 
   rest-api-0:
     image: hyperledger/sawtooth-rest-api:nightly
+    networks:
+      - sawtooth-net
     deploy:
       placement:
         constraints: [node.hostname == coreslice]
@@ -39,6 +41,8 @@ services:
 
   rest-api-1:
     image: hyperledger/sawtooth-rest-api:nightly
+    networks:
+      - sawtooth-net
     deploy:
       placement:
         constraints: [node.hostname == coreslice]
@@ -55,6 +59,8 @@ services:
 
   rest-api-2:
     image: hyperledger/sawtooth-rest-api:nightly
+    networks:
+      - sawtooth-net
     deploy:
       placement:
         constraints: [node.hostname == idrbt]
@@ -71,6 +77,8 @@ services:
 
   rest-api-3:
     image: hyperledger/sawtooth-rest-api:nightly
+    networks:
+      - sawtooth-net
     deploy:
       placement:
         constraints: [node.hostname == idrbt]
@@ -87,6 +95,8 @@ services:
 
   rest-api-4:
     image: hyperledger/sawtooth-rest-api:nightly
+    networks:
+      - sawtooth-net
     deploy:
       placement:
         constraints: [node.hostname == idrbt]
@@ -105,6 +115,8 @@ services:
 
   shell:
     image: hyperledger/sawtooth-shell:nightly
+    networks:
+      - sawtooth-net
     deploy:
       placement:
         constraints: [node.hostname == coreslice]
@@ -122,6 +134,8 @@ services:
 
   validator-0:
     image: hyperledger/sawtooth-validator:nightly
+    networks:
+      - sawtooth-net
     deploy:
       placement:
         constraints: [node.hostname == coreslice]
@@ -180,6 +194,8 @@ services:
 
   validator-1:
     image: hyperledger/sawtooth-validator:nightly
+    networks:
+      - sawtooth-net
     deploy:
       placement:
         constraints: [node.hostname == coreslice]
@@ -216,6 +232,8 @@ services:
 
   validator-2:
     image: hyperledger/sawtooth-validator:nightly
+    networks:
+      - sawtooth-net
     deploy:
       placement:
         constraints: [node.hostname == idrbt]
@@ -253,6 +271,8 @@ services:
 
   validator-3:
     image: hyperledger/sawtooth-validator:nightly
+    networks:
+      - sawtooth-net
     deploy:
       placement:
         constraints: [node.hostname == idrbt]
@@ -291,6 +311,8 @@ services:
 
   validator-4:
     image: hyperledger/sawtooth-validator:nightly
+    networks:
+      - sawtooth-net
     deploy:
       placement:
         constraints: [node.hostname == idrbt]
@@ -336,8 +358,12 @@ services:
       placement:
         constraints: [node.hostname == coreslice]
     container_name: sawtooth-pbft-engine-default-0
-    command: pbft-engine -vv --connect tcp://validator-0:5050
+    command: |
+      bash -c "until nc -z validator-0 5050; do sleep 1; done;
+               pbft-engine -vv --connect tcp://validator-0:5050"
     stop_signal: SIGKILL
+    networks:
+      - sawtooth-net
 
   pbft-1:
     image: hyperledger/sawtooth-pbft-engine:nightly
@@ -345,8 +371,12 @@ services:
       placement:
         constraints: [node.hostname == coreslice]
     container_name: sawtooth-pbft-engine-default-1
-    command: pbft-engine -vv --connect tcp://validator-1:5050
+    command: |
+      bash -c "until nc -z validator-1 5050; do sleep 1; done;
+               pbft-engine -vv --connect tcp://validator-1:5050"
     stop_signal: SIGKILL
+    networks:
+      - sawtooth-net
 
   pbft-2:
     image: hyperledger/sawtooth-pbft-engine:nightly
@@ -354,8 +384,12 @@ services:
       placement:
         constraints: [node.hostname == idrbt]
     container_name: sawtooth-pbft-engine-default-2
-    command: pbft-engine -vv --connect tcp://validator-2:5050
+    command: |
+      bash -c "until nc -z validator-2 5050; do sleep 1; done;
+               pbft-engine -vv --connect tcp://validator-2:5050"
     stop_signal: SIGKILL
+    networks:
+      - sawtooth-net
 
   pbft-3:
     image: hyperledger/sawtooth-pbft-engine:nightly
@@ -363,8 +397,12 @@ services:
       placement:
         constraints: [node.hostname == idrbt]
     container_name: sawtooth-pbft-engine-default-3
-    command: pbft-engine -vv --connect tcp://validator-3:5050
+    command: |
+      bash -c "until nc -z validator-3 5050; do sleep 1; done;
+               pbft-engine -vv --connect tcp://validator-3:5050"
     stop_signal: SIGKILL
+    networks:
+      - sawtooth-net
 
   pbft-4:
     image: hyperledger/sawtooth-pbft-engine:nightly
@@ -372,8 +410,14 @@ services:
       placement:
         constraints: [node.hostname == idrbt]
     container_name: sawtooth-pbft-engine-default-4
-    command: pbft-engine -vv --connect tcp://validator-4:5050
+    command: |
+      bash -c "until nc -z validator-4 5050; do sleep 1; done;
+               pbft-engine -vv --connect tcp://validator-4:5050"
     stop_signal: SIGKILL
+    networks:
+      - sawtooth-net
+
+# ----========network&volume=====------
 
 networks:
   sawtooth-net:
