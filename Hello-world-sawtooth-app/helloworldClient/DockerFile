@@ -14,10 +14,10 @@ RUN apt-get update && apt-get install -y -q \
     build-essential \
     nodejs
 
-# Add the Sawtooth repository and GPG key
-# Use an alternative key server (pgp.mit.edu) for GPG key retrieval
-RUN curl -sSL 'https://pgp.mit.edu/pks/lookup?op=get&search=0x8AA7AF1F1091A5FD' | gpg --dearmor -o /usr/share/keyrings/sawtooth-archive-keyring.gpg \
-    && echo 'deb [signed-by=/usr/share/keyrings/sawtooth-archive-keyring.gpg] http://repo.sawtooth.me/ubuntu/chime/stable bionic universe' > /etc/apt/sources.list.d/sawtooth.list
+# Add the Sawtooth repository and GPG key using an alternative key server (MIT)
+RUN gpg --keyserver hkp://pgp.mit.edu:80 --recv-keys 8AA7AF1F1091A5FD \
+    && gpg --export --armor 8AA7AF1F1091A5FD | apt-key add - \
+    && echo 'deb [arch=amd64,signed-by=/usr/share/keyrings/sawtooth-archive-keyring.gpg] http://repo.sawtooth.me/ubuntu/chime/stable bionic universe' > /etc/apt/sources.list.d/sawtooth.list
 
 # Update package lists again
 RUN apt-get update
