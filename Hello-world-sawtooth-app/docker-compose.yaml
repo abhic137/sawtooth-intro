@@ -10,18 +10,20 @@ services:
        - 3000
      ports:
        - 3000:3000
-     build:
-       context: .
-       dockerfile: helloworldClient/DockerFile
+     image: abhic137/hello-world-sawtooth-app_helloworld-client:latest
+     #build:
+       #context: .
+       #dockerfile: helloworldClient/DockerFile
      volumes:
          - '.:/project/sawtooth-helloworld'
   
   #container for the transaction processor
   helloworld-processor:
     container_name: helloworld-processor
-    build:
-      context: .
-      dockerfile: helloworldprocessor/DockerFile
+    image: abhic137/hello-world-sawtooth-app_helloworld-processor:latest
+    #build:
+      #context: .
+      #dockerfile: helloworldprocessor/DockerFile
     depends_on:
         - validator
     volumes:
