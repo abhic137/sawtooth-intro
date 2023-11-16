@@ -20,12 +20,15 @@ items:
 
 # --------------------------=== pod 0 ===--------------------------
 
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     name: pbft-0
   spec:
     replicas: 1
+    selector: # Add this selector field
+      matchLabels:
+        name: pbft-0
     template:
       metadata:
         labels:
@@ -180,12 +183,15 @@ items:
 
 # --------------------------=== pod 1 ===--------------------------
 
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     name: pbft-1
   spec:
     replicas: 1
+    selector: # Add this selector field
+      matchLabels:
+        name: pbft-1
     template:
       metadata:
         labels:
@@ -329,12 +335,15 @@ items:
 
 # --------------------------=== pod 2 ===--------------------------
 
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     name: pbft-2
   spec:
     replicas: 1
+    selector: # Add this selector field
+      matchLabels:
+        name: pbft-2
     template:
       metadata:
         labels:
@@ -480,12 +489,15 @@ items:
 
 # --------------------------=== pod 3 ===--------------------------
 
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     name: pbft-3
   spec:
     replicas: 1
+    selector: # Add this selector field
+      matchLabels:
+        name: pbft-3
     template:
       metadata:
         labels:
@@ -632,12 +644,15 @@ items:
 
 # --------------------------=== pod 4 ===--------------------------
 
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     name: pbft-4
   spec:
     replicas: 1
+    selector: # Add this selector field
+      matchLabels:
+        name: pbft-4
     template:
       metadata:
         labels:
