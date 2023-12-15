@@ -17,6 +17,28 @@ version: "2.1"
 
 services:
 
+  settings-tp:
+    image: danielvilas/sawtooth-settings-tp:1.2.6-dev1
+    container_name: sawtooth-settings-tp-default
+    depends_on:
+      - validator
+    entrypoint: settings-tp -vv -C tcp://validator:4004
+
+  intkey-tp-python:
+    image: danielvilas/sawtooth-intkey-tp-python:1.2.3-dev1
+    container_name: sawtooth-intkey-tp-python-default
+    depends_on:
+      - validator
+    entrypoint: intkey-tp-python -vv -C tcp://validator:4004
+
+  xo-tp-python:
+    image: danielvilas/sawtooth-xo-tp-python:1.2.3-dev1
+    container_name: sawtooth-xo-tp-python-default
+    depends_on:
+      - validator
+    entrypoint: xo-tp-python -vv -C tcp://validator:4004
+
+
   validator:
     image: danielvilas/sawtooth-validator:1.2.6-dev1
     container_name: sawtooth-validator-default
